@@ -14,6 +14,7 @@ struct matchedItemView: View {
     @Binding var selectedItems: [Int]
     @Binding var matchedItems: Set<Int>
     @Binding var moves: Int
+    @Binding var canUseHint: Bool
 
     let onRestart: () -> Void
 
@@ -28,7 +29,7 @@ struct matchedItemView: View {
     }
 
     @State private var isCheckingMatch = false
-    @State private var canUseHint = true
+  
     
 
     // Game progress helpers
@@ -340,6 +341,7 @@ struct matchedItemView: View {
         selectedItems: .constant([]),
         matchedItems: .constant([]),
         moves: .constant(0),
+        canUseHint: .constant(true),
         onRestart: {}
     )
 }

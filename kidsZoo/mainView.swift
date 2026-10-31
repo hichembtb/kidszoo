@@ -19,6 +19,7 @@ struct mainView: View {
     @State var selectedItems: [Int] = []
     @State var matchedItems: Set<Int> = []
     @State var moves: Int = 0
+    @State var canUseHint: Bool = true
 
     // Body
     var body: some View {
@@ -72,6 +73,7 @@ struct mainView: View {
                     selectedItems: $selectedItems,
                     matchedItems: $matchedItems,
                     moves: $moves,
+                    canUseHint: $canUseHint ,
                     onRestart: restartGame
                 )
 
@@ -86,6 +88,7 @@ struct mainView: View {
             selectedItems.removeAll()
             matchedItems.removeAll()
             moves = 0
+            canUseHint = true
             animalsArrayImagesName.shuffle()
         }
     }
