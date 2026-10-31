@@ -28,6 +28,8 @@ struct matchedItemView: View {
     }
 
     @State private var isCheckingMatch = false
+    @State private var canUseHint = true
+    
 
     // Game progress helpers
     private var pairsFound: Int {
@@ -182,7 +184,7 @@ struct matchedItemView: View {
                                     .stroke(WoodlandPalette.terracotta.opacity(0.55), lineWidth: 1.5)
                             )
                     )
-                }
+                }.disabled(!canUseHint)
             }
             .padding(.top, 4)
         }
@@ -308,7 +310,7 @@ struct matchedItemView: View {
 
     // Provide a brief hint by temporarily flashing an unmatched pair
     private func provideHint() {
-        guard !isCheckingMatch, matchedItems.count < animalsArrayImagesName.count else {
+        guard !isCheckingMatch, matchedItems.count < animalsArrayImagesName.count && canUseHint else {
             return
         }
 
@@ -324,6 +326,7 @@ struct matchedItemView: View {
                         selectedItems.removeAll()
                         isCheckingMatch = false
                     }
+                    canUseHint  = false
                     break
                 }
             }
