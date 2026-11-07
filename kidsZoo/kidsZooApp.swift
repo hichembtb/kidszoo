@@ -9,7 +9,13 @@ import SwiftUI
 
 @main
 struct kidsZooApp: App {
-   
+    init() {
+        #if DEBUG
+        Bundle(
+            path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle"
+        )?.load()
+        #endif
+    }
     //body
     var body: some Scene {
         WindowGroup {

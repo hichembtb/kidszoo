@@ -1,20 +1,72 @@
-# macOS
+# ==============================================================================
+# Xcode & Swift Project .gitignore for kidsZoo
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# macOS System Files
+# ------------------------------------------------------------------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
 
-# Xcode user-specific data
+# ------------------------------------------------------------------------------
+# Xcode User Data & State
+# (Keeps project.pbxproj & xcshareddata tracked)
+# ------------------------------------------------------------------------------
 xcuserdata/
+*.xcuserdatad/
 *.xcuserstate
+project.xcworkspace/xcuserdata/
 
-# Build products
+# ------------------------------------------------------------------------------
+# Build Products & Derived Data
+# ------------------------------------------------------------------------------
 build/
 DerivedData/
-
-# Swift Package Manager
-.build/
-Packages/
-
-# Xcode temporary files
+DerivedData
 *.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.app
+*.xctest
+*.framework
+
+# ------------------------------------------------------------------------------
+# Xcode Project & Build Cache Metadata
+# ------------------------------------------------------------------------------
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+*.bundle
+
+# ------------------------------------------------------------------------------
+# Swift Package Manager
+# ------------------------------------------------------------------------------
+.build/
+Packages/
+# Explicitly keep Package.resolved tracked in xcshareddata
+!**/xcshareddata/**/Package.resolved
+
+# ------------------------------------------------------------------------------
+# VS Code Configuration
+# (Allows shared tasks/launch configs, ignores personal workspace state)
+# ------------------------------------------------------------------------------
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/*.log
+.history/
+
+# ------------------------------------------------------------------------------
+# InjectionIII & Temporary Symlinks
+# ------------------------------------------------------------------------------
+*.link
+/tmp/injection.link

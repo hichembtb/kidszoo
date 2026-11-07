@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Inject
 
 struct mainView: View {
     // Properties
+    @ObserveInjection var inject
     @AppStorage("Paging") var paging: Int = 0
 
     @State var animalsArrayImagesName: [String] = [
@@ -27,13 +29,13 @@ struct mainView: View {
             WoodlandPalette.canvasCream
                 .ignoresSafeArea()
 
-            // 2. Decorative Background Layer (Positioned independently, behind interactive UI)
+            
             GeometryReader { proxy in
                 let screenWidth = proxy.size.width
                 let screenHeight = proxy.size.height
 
                 ZStack(alignment: .topLeading) {
-                    // Top-Left Tree Foliage & Canopy Branch
+                 
                     Image("woodland_branch")
                         .resizable()
                         .scaledToFill()
@@ -45,8 +47,6 @@ struct mainView: View {
                         .clipped()
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     
-
-                    // Bottom Woodland Landscape
                     Image("woodland_landscape")
                         .resizable()
                         .scaledToFill()
@@ -62,7 +62,6 @@ struct mainView: View {
             .ignoresSafeArea()
             .allowsHitTesting(false)
 
-            // 3. Interactive Game Screen Content
             VStack(spacing: 0) {
                 mainViewAppBar()
 
@@ -79,7 +78,7 @@ struct mainView: View {
 
                 Spacer(minLength: 12)
             }
-        }
+        }.enableInjection()
     }
 
     // Reset and reshuffle game
